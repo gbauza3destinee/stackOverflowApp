@@ -1,28 +1,29 @@
 @startuml
 
-
 actor User as user
 actor Guest as guest
 actor Moderator as moderator
 actor SystemAdministrator as systemAdmin
 
 rectangle StackOverflow {
-    usecase "View Questions" as ViewQuestion
     usecase "Ask Question" as AskQuestion
     usecase "Answer Question" as AnswerQuestion
     usecase "Search Question" as SearchQuestion
     usecase "Vote Question" as VoteQuestion
     usecase "Close Question" as CloseQuestion
     usecase "Send Notification" as SendNotification
+    usecase "Create Question" as CreateQuestion
 
-    User --> ViewQuestion
     User --> AskQuestion
     User --> AnswerQuestion
     User --> SearchQuestion
     User --> VoteQuestion
     Guest --> SearchQuestion
     Moderator --> CloseQuestion
+    Moderator --> CreateQuestion
     SystemAdministrator --> SendNotification
+
+    AskQuestion --> VoteQuestion
 
 }
 

@@ -1,0 +1,55 @@
+@startuml
+
+
+
+class User {
+    + String name
+    + String email
+    + String password
+    + int phoneNumber
+    + Enum statusOfAccount
+    + createQuestion()
+    + addAnswer()
+    + createComment()
+    + upVoteOrDownVote()
+    + acceptAnswer(long answerId) : boolean
+
+}
+
+
+class Question {
+    + long id
+    + List <Tag> tagList
+    + String content
+    + String titleOfQuestion
+    + String answer
+    + User createdBy
+    + List <Comment>
+    + Enum statusOfQuestion
+    + int modificationDate
+    + User modifiedBy
+    + int voteCount
+    + List<User> followers
+}
+
+class Answer {
+    + long id
+    + String content
+    + int creationDate
+    + User answeredBy
+    + List <Comment> comments
+    + List<User> followers
+    + boolean isAccepted
+}
+class Tag {
+}
+
+class Comment{
+    + long id
+    + String author
+    + String date
+    + int voteCount
+    + String content
+}
+
+@enduml
